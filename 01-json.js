@@ -20,11 +20,25 @@ const fs = require("fs");
 // fs.writeFileSync("01-json.json", movieJSON);
 
 // when reading the file, the content shown in binary
-const dataBuffer = fs.readFileSync("01-json.json");
+// const dataBuffer = fs.readFileSync("01-json.json");
 // for human readability it can be turned into string with .toString()
-console.log(dataBuffer.toString());
+// console.log(dataBuffer.toString());
 
+// const jsonData = dataBuffer.toString();
+// const data = JSON.parse(jsonData);
+
+// console.log(data["director"]);
+
+const dataBuffer = fs.readFileSync("02-json.json");
 const jsonData = dataBuffer.toString();
+const data = JSON.parse(jsonData);
 
-const fileContent = JSON.parse(jsonData);
-console.log(fileContent);
+data.name = "Shaghayegh";
+data.age = 39;
+
+console.log(data);
+
+dataJSON = JSON.stringify(data);
+console.log(dataJSON);
+
+fs.writeFileSync("02-json.json", dataJSON);
