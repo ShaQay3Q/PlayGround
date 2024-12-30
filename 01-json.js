@@ -21,9 +21,10 @@ const fs = require("fs");
 
 // when reading the file, the content shown in binary
 const dataBuffer = fs.readFileSync("01-json.json");
-
 // for human readability it can be turned into string with .toString()
 console.log(dataBuffer.toString());
 
-const fileContent = JSON.parse(dataBuffer);
+const jsonData = dataBuffer.toString();
+
+const fileContent = JSON.parse(jsonData);
 console.log(fileContent);
