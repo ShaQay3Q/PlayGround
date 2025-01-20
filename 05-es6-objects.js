@@ -41,13 +41,30 @@ const product = {
 // console.log(price);
 // console.log(rating);
 
-//! get the property of an object with assigning another name to it:
-const { label: productLabe } = product; // The new name comes after : after the actual property name
-console.log(productLabe);
+// // 03
+// //! get the property of an object with assigning another name to it:
+// const { label: productLabe } = product; // The new name comes after : after the actual property name
+// console.log(productLabe);
 
-//! we can set a default value for a property if it is not existed on the object
-//! means DEFAULT is onlyt being used when there's no property matching on the object
-const { price = 2, rating = 1, salePrice = 5 } = product;
-console.log(price); // 3
-console.log(rating); // 1
-console.log(salePrice); // 5
+// //! we can set a default value for a property if it is not existed on the object
+// //! means DEFAULT is onlyt being used when there's no property matching on the object
+// const { price = 2, rating = 1, salePrice = 5 } = product;
+// console.log(price); // 3
+// console.log(rating); // 1
+// console.log(salePrice); // 5
+
+// type: sell or placing an oorder
+// myProduct: info about the product
+// //! EITHER
+// const transaction = (type, myProduct) => {
+//! local is the local variable here
+// 	const { label } = product;
+// };
+//! OR
+const transaction = (type, { label, stock } = product) => {
+	console.log(type);
+	console.log(label);
+	console.log(stock);
+};
+
+transaction("order", product);
