@@ -1,7 +1,7 @@
 const http = require("node:http");
 
 const url =
-	"http://api.weatherapi.com/v1/current.json?key=a150a97e684d45b2860115533251201&q=51.300,12.33";
+	"http://api.weatherapi.com/v1/current.json?key=a150a97e684d45b2860115533251201&=51.300,12.33";
 
 //! return value for request()
 const request = http.request(url, (response) => {
@@ -27,9 +27,14 @@ Weather condition is ${current.condition.text}.`
 		);
 	});
 	// listens to end event
-	response.on("end", () => {
-		console.log("done!");
-	});
+	// response.on("end", () => {
+	// 	console.log("done!");
+	// });
+});
+
+//! listens for errors
+request.on("error", (e) => {
+	console.log("ERROR!");
 });
 
 request.end(); //! crucial method
